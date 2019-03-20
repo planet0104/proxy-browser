@@ -196,6 +196,7 @@ fn replace(url: &str, html: &str, href: &str, attr: &str, ime: &str) -> String {
 
 fn fetch_html(url: &str) -> reqwest::Result<String> {
     let mut html = reqwest::get(url)?.text()?;
+    html = html.replace("&amp;", "&");
     let document = Html::parse_document(&html);
 
     //替换img
