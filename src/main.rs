@@ -74,6 +74,7 @@ fn css(
 
 #[get("/?<url>")]
 fn img(url: String) -> Result<content::Content<Vec<u8>>, Box<std::error::Error>> {
+    let url = &decode_url(url)?;
     let mut content_type = ContentType::Binary;
     if url.ends_with(".jpg") || url.ends_with(".jpeg") {
         content_type = ContentType::JPEG;
@@ -98,7 +99,7 @@ fn img(url: String) -> Result<content::Content<Vec<u8>>, Box<std::error::Error>>
     }
     Ok(content::Content(
         content_type,
-        fetch_binary(&decode_url(url)?),
+        fetch_binary(url),
     ))
 }
 
