@@ -1,0 +1,16 @@
+[package]
+name = "jshex"
+version = "0.1.0"
+authors = ["planet0104 <planet0104@gmail.com>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+stdweb = "0.4.15"
+hex = "0.3.2"
+
+[profile.release]
+lto = true
+opt-level = "s"

@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>jshex</title>
+    <script src="target/wasm32-unknown-unknown/release/jshex.js"></script>
+</head>
+<body>
+    <h1>jshex</h1>
+    <script>
+        Rust.jshex.then( function(jshex) {
+            const string = "http://www.runoob.com/jsref/jsref-trim.html";
+            const hex = jshex.encode(string);
+            console.log( "hex of " + string + " is '" + hex + "'" );
+        });
+    </script>
+</body>
+</html>
